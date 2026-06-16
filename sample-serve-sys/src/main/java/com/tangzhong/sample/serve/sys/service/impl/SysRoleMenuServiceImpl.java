@@ -2,6 +2,7 @@ package com.tangzhong.sample.serve.sys.service.impl;
 
 import com.tangzhong.sample.framework.mybatis.service.impl.BaseServiceImpl;
 import com.tangzhong.sample.serve.sys.entity.SysRoleMenu;
+import com.tangzhong.sample.serve.sys.mapper.SysRoleMenuMapper;
 import com.tangzhong.sample.serve.sys.service.ISysRoleMenuService;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ import java.util.List;
  * @since  V1.0.0
  */
 @Service
-public class SysRoleMenuServiceImpl extends BaseServiceImpl<SysRoleMenu> implements ISysRoleMenuService {
+public class SysRoleMenuServiceImpl extends BaseServiceImpl<SysRoleMenu, SysRoleMenuMapper> implements ISysRoleMenuService {
 
     @Override
     public List<Long> getMenuIds(Collection<Long> roleIds) {

@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authorization.AuthorizationDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -30,6 +31,12 @@ public class GlobalExceptionHandler {
     public R<?> handleBadCredentialsException(BadCredentialsException e, HttpServletRequest request) {
         log.warn(e.getMessage(), e);
         return R.fail(e.getMessage());
+    }
+
+    @ExceptionHandler(AuthorizationDeniedException.class)
+    public R<?> handleAuthorizationDeniedException(AuthorizationDeniedException e, HttpServletRequest request) {
+        log.warn(e.getMessage(), e);
+        return R.fail("当前操作无权限，请联系管理员授权！");
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

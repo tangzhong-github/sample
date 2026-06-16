@@ -11,4 +11,6 @@ import com.tangzhong.sample.framework.mybatis.entity.BaseEntity;
  */
 public interface IBaseService<T extends BaseEntity> extends IService<T> {
 
+
+
 }

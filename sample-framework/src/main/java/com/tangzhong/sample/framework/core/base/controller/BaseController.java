@@ -7,5 +7,6 @@ package com.tangzhong.sample.framework.core.base.controller;
  * @since  V1.0.0
  */
 public class BaseController {
-    
+
+
 }

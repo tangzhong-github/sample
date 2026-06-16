@@ -2,7 +2,7 @@ package com.tangzhong.sample.framework.security.service;
 
 import com.tangzhong.sample.framework.mybatis.entity.BaseEntity;
 import com.tangzhong.sample.framework.security.entity.UserInfo;
-import com.tangzhong.sample.framework.security.provider.UserInfoProvider;
+import com.tangzhong.sample.framework.security.UserInfoProvider;
 import lombok.RequiredArgsConstructor;
 import org.jspecify.annotations.NonNull;
 import org.springframework.security.core.GrantedAuthority;

@@ -1,7 +1,11 @@
 package com.tangzhong.sample.serve.sys.pojo.dto;
 
+import com.tangzhong.sample.common.api.dto.BaseDTO;
+import com.tangzhong.sample.common.validation.groups.AddGroup;
+import com.tangzhong.sample.common.validation.groups.EditGroup;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,16 +20,20 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class SysUserDTO {
+public class SysUserDTO extends BaseDTO {
+
+    /** ID */
+    @Null(message = "ID必须为空", groups = AddGroup.class)
+    @NotNull(message = "ID不能为空", groups = EditGroup.class)
+    private Long id;
 
     /** 用户名 */
-    @NotBlank(message = "用户名不能为空")
+    @NotBlank(message = "用户名不能为空", groups = {AddGroup.class, EditGroup.class})
     @Size(max = 64, message = "用户名长度不能超过64个字符")
     private String username;
 
-    /** 密码 */
-    //@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z0-9_.]{6,20}$", message = "密码格式为6-20位，必须包含大小写字母和数字，可包含字母、数字、下划线(_)和点(.)")
-    @Pattern(regexp = "^[a-zA-Z0-9_.]{6,20}$", message = "密码格式为6-20位，可包含字母、数字、下划线(_)和点(.)")
-    private String password;
+    /** 手机号 */
+    @NotBlank(message = "手机号不能为空", groups = {AddGroup.class, EditGroup.class})
+    private String mobilePhoneNumber;
 
 }

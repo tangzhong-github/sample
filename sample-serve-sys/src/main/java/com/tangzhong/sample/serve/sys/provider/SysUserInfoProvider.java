@@ -1,9 +1,12 @@
 package com.tangzhong.sample.serve.sys.provider;
 
 import com.tangzhong.sample.common.constant.PermissionKeyConstants;
-import com.tangzhong.sample.framework.security.provider.UserInfoProvider;
+import com.tangzhong.sample.common.constant.RoleKeyConstants;
+import com.tangzhong.sample.common.util.AssertUtil;
+import com.tangzhong.sample.framework.security.UserInfoProvider;
 import com.tangzhong.sample.serve.sys.constant.SysDictConstants;
 import com.tangzhong.sample.serve.sys.entity.SysMenu;
+import com.tangzhong.sample.serve.sys.entity.SysRole;
 import com.tangzhong.sample.serve.sys.entity.SysUser;
 import com.tangzhong.sample.serve.sys.service.ISysMenuService;
 import com.tangzhong.sample.serve.sys.service.ISysRoleMenuService;
@@ -46,7 +49,7 @@ public class SysUserInfoProvider implements UserInfoProvider<SysUser> {
             throw new UsernameNotFoundException("用户不存在");
         }
         if(Objects.equals(userEntity.getStatus(), SysDictConstants.USER_STATUS_FREEZE)){
-            throw new UsernameNotFoundException("当前用户已被冻结，请联系管理员");
+            throw new UsernameNotFoundException("当前用户已被冻结，请联系管理员！");
         }
     }
 
@@ -58,12 +61,14 @@ public class SysUserInfoProvider implements UserInfoProvider<SysUser> {
     @Override
     public List<String> getPermissions(Long userId) {
         //查询用户角色列表
-        List<Long> userRoleIds = sysUserRoleService.getUserRoleIds(userId);
+        List<Long> userRoleIds = sysUserRoleService.getUserGrantRoleIds(userId);
         if(CollectionUtils.isEmpty(userRoleIds)){
             return Collections.emptyList();
         }
         //判断是否是管理员角色，若是管理员角色则返回所有权限
-        if(sysRoleService.existsAdminRole(userRoleIds)){
+        SysRole adminRole = sysRoleService.getRole(RoleKeyConstants.ADMIN);
+        AssertUtil.predict(Objects::nonNull, adminRole, "管理员角色不存在，请联系管理员！");
+        if(userRoleIds.contains(adminRole.getId())){
             return Collections.singletonList(PermissionKeyConstants.ALL);
         }
         //通过用户角色查询用户所有菜单

@@ -1,6 +1,6 @@
 package com.tangzhong.sample.serve.sys.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.tangzhong.sample.framework.mybatis.mapper.BaseMapper;
 import com.tangzhong.sample.serve.sys.entity.SysMenu;
 
 /**

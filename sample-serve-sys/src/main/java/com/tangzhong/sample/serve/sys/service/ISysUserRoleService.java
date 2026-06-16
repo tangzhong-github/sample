@@ -2,6 +2,8 @@ package com.tangzhong.sample.serve.sys.service;
 
 import com.tangzhong.sample.framework.mybatis.service.IBaseService;
 import com.tangzhong.sample.serve.sys.entity.SysUserRole;
+import com.tangzhong.sample.serve.sys.pojo.dto.SysRoleAuthorizeDTO;
+import com.tangzhong.sample.serve.sys.pojo.dto.SysUserGrantDTO;
 
 import java.util.List;
 
@@ -13,6 +15,12 @@ import java.util.List;
  */
 public interface ISysUserRoleService extends IBaseService<SysUserRole> {
 
-    List<Long> getUserRoleIds(Long userId);
+    List<Long> getUserGrantRoleIds(Long userId);
+
+    List<Long> getRoleAuthorizeUserIds(Long roleId);
+
+    void grant(SysUserGrantDTO dto);
+
+    void authorize(SysRoleAuthorizeDTO dto);
 
 }

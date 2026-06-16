@@ -1,4 +1,4 @@
-package com.tangzhong.sample.framework.security.provider;
+package com.tangzhong.sample.framework.security;
 
 import com.tangzhong.sample.framework.mybatis.entity.BaseEntity;
 

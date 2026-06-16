@@ -28,6 +28,9 @@ public class SysUser extends BaseEntity {
     /** 用户名 */
     private String username;
 
+    /** 手机号 */
+    private String mobilePhoneNumber;
+
     /** 密码 */
     private String password;
 

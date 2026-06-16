@@ -25,6 +25,10 @@ public class R<T> implements Serializable {
 
     private T data;
 
+    public static <T> R<T> of(boolean success){
+        return success ? success() : fail("操作失败");
+    }
+
     public static <T> R<T> success(){
         return success("操作成功");
     }
