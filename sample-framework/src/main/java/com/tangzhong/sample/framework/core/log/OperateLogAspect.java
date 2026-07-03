@@ -1,11 +1,9 @@
-package com.tangzhong.sample.aspectj;
+package com.tangzhong.sample.framework.core.log;
 
+import com.tangzhong.sample.common.constant.CommonDictConstants;
 import com.tangzhong.sample.common.util.JsonUtil;
-import com.tangzhong.sample.framework.annotation.OperateLog;
 import com.tangzhong.sample.framework.mvc.RequestContext;
-import com.tangzhong.sample.serve.sys.constant.SysDictConstants;
-import com.tangzhong.sample.serve.sys.pojo.dto.SysOperateLogDTO;
-import com.tangzhong.sample.serve.sys.service.ISysOperateLogService;
+import com.tangzhong.sample.framework.security.util.SecurityUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -30,24 +28,24 @@ import java.util.stream.Collectors;
 @Component
 public class OperateLogAspect {
 
-    private final ISysOperateLogService sysOperateLogService;
+    private final OperateLogHandler operateLogHandler;
 
     @Around("@annotation(operateLog)")
     public Object around(ProceedingJoinPoint pjp, OperateLog operateLog) throws Throwable {
-        long start = System.currentTimeMillis();
+        long operateStartTime = System.currentTimeMillis();
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
         Object result = null;
-        String isSuccess = SysDictConstants.BOOLEAN_TRUE;
+        String isSuccess = CommonDictConstants.BOOLEAN_TRUE;
         Exception error = null;
         try {
             result = pjp.proceed();
             return result;
         } catch (Exception e) {
-            isSuccess = SysDictConstants.BOOLEAN_FALSE;
+            isSuccess = CommonDictConstants.BOOLEAN_FALSE;
             error = e;
             throw e;
         } finally {
-            SysOperateLogDTO dto = new SysOperateLogDTO();
+            OperateLogDTO dto = new OperateLogDTO();
             dto.setTraceId(RequestContext.getTraceId());
             dto.setIp(request.getRemoteAddr());
             dto.setOperationName(operateLog.value());
@@ -55,16 +53,17 @@ public class OperateLogAspect {
             dto.setRequestUrl(request.getRequestURL().toString());
             dto.setMethodSignature(pjp.getSignature().toShortString());
             dto.setRequestParams(JsonUtil.toJsonString(pjp.getArgs()));
-            if(SysDictConstants.BOOLEAN_TRUE.equals(isSuccess)){
+            if(CommonDictConstants.BOOLEAN_TRUE.equals(isSuccess)){
                 dto.setResponseData(substring(JsonUtil.toJsonString(result)));
             }else{
                 dto.setResponseData(error.getMessage());
                 String exceptionInfo = Arrays.stream(error.getStackTrace()).map(StackTraceElement::toString).collect(Collectors.joining("\n"));
                 dto.setExceptionInfo(substring(exceptionInfo));
             }
-            dto.setCostTime(System.currentTimeMillis() - start);
             dto.setIsSuccess(isSuccess);
-            sysOperateLogService.addAsync(dto);
+            dto.setOperatorName(SecurityUtil.getUsername());
+            dto.setCostTime(System.currentTimeMillis() - operateStartTime);
+            operateLogHandler.save(dto);
         }
     }
 

@@ -1,4 +1,4 @@
-package com.tangzhong.sample.auth.pojo.dto;
+package com.tangzhong.sample.serve.auth.pojo.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -5,6 +5,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  *
@@ -14,12 +15,20 @@ import java.util.Objects;
  */
 public class SecurityUtil {
 
-    public static Long getUserId(){
+    public static UserInfo getUser(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if(Objects.nonNull(authentication) && authentication.getPrincipal() instanceof UserInfo userInfo){
-            return userInfo.getUserId();
+            return userInfo;
         }
         return null;
+    }
+
+    public static Long getUserId(){
+        return Optional.ofNullable(getUser()).map(UserInfo::getUserId).orElse(null);
+    }
+
+    public static String getUsername(){
+        return Optional.ofNullable(getUser()).map(UserInfo::getUsername).orElse(null);
     }
 
 }

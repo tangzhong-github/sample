@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDateTime;
+
 /**
  * @author tangzhong
  * @date   2026-07-02 17:18
@@ -20,6 +22,12 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @TableName(value ="sys_operate_log")
 public class SysOperateLog extends BaseEntity {
+
+    /** traceId */
+    private String traceId;
+
+    /** IP */
+    private String ip;
 
     /** 操作名称 */
     private String operationName;
@@ -42,16 +50,14 @@ public class SysOperateLog extends BaseEntity {
     /** 操作异常信息 */
     private String exceptionInfo;
 
-    /** IP */
-    private String ip;
-
-    /** 耗时(ms) */
-    private Long costTime;
-
     /** 是否成功：{@link com.tangzhong.sample.common.constant.CommonDictConstants#BOOLEAN} */
     private String isSuccess;
 
-    /** traceId */
-    private String traceId;
+    /** 操作人名称 */
+    private String operatorName;
+
+    /** 操作耗时(ms) */
+    private Long costTime;
+
 
 }

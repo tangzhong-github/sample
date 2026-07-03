@@ -14,8 +14,9 @@
     <modules>
         <module>sample-application</module>
         <module>sample-common</module>
-        <module>sample-serve-sys</module>
         <module>sample-framework</module>
+        <module>sample-serve-auth</module>
+        <module>sample-serve-sys</module>
         <module>sample-serve-sys-pojo</module>
     </modules>
 
@@ -44,6 +45,11 @@
             <dependency>
                 <groupId>com.tangzhong</groupId>
                 <artifactId>sample-framework</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tangzhong</groupId>
+                <artifactId>sample-serve-auth</artifactId>
                 <version>1.0.0</version>
             </dependency>
             <dependency>

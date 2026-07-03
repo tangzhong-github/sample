@@ -4,7 +4,7 @@ import com.tangzhong.sample.common.api.response.PageObject;
 import com.tangzhong.sample.common.api.response.R;
 import com.tangzhong.sample.common.validation.groups.AddGroup;
 import com.tangzhong.sample.common.validation.groups.EditGroup;
-import com.tangzhong.sample.framework.annotation.OperateLog;
+import com.tangzhong.sample.framework.core.log.OperateLog;
 import com.tangzhong.sample.framework.core.base.controller.BaseController;
 import com.tangzhong.sample.framework.mybatis.entity.Page;
 import com.tangzhong.sample.serve.sys.pojo.dto.SysUserDTO;

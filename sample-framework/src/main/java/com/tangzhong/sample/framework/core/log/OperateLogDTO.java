@@ -1,4 +1,4 @@
-package com.tangzhong.sample.serve.sys.pojo.dto;
+package com.tangzhong.sample.framework.core.log;
 
 import com.tangzhong.sample.common.api.dto.BaseDTO;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class SysOperateLogDTO extends BaseDTO {
+public class OperateLogDTO extends BaseDTO {
 
     /** traceId */
     private String traceId;
@@ -43,10 +43,13 @@ public class SysOperateLogDTO extends BaseDTO {
     /** 操作异常信息 */
     private String exceptionInfo;
 
-    /** 耗时(ms) */
-    private Long costTime;
-
     /** 是否成功：{@link com.tangzhong.sample.common.constant.CommonDictConstants#BOOLEAN} */
     private String isSuccess;
+
+    /** 操作人名称 */
+    private String operatorName;
+
+    /** 操作耗时(ms) */
+    private Long costTime;
 
 }

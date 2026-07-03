@@ -1,8 +1,8 @@
 package com.tangzhong.sample.serve.sys.converter;
 
 import com.tangzhong.sample.framework.core.BaseConverter;
+import com.tangzhong.sample.framework.core.log.OperateLogDTO;
 import com.tangzhong.sample.serve.sys.entity.SysOperateLog;
-import com.tangzhong.sample.serve.sys.pojo.dto.SysOperateLogDTO;
 import com.tangzhong.sample.serve.sys.pojo.vo.SysOperateLogDetailVO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -18,6 +18,6 @@ public interface SysOperateLogConverter extends BaseConverter<SysOperateLog, Sys
 
     SysOperateLogConverter INSTANCE = Mappers.getMapper(SysOperateLogConverter.class);
 
-    SysOperateLog toEntity(SysOperateLogDTO dto);
+    SysOperateLog toEntity(OperateLogDTO dto);
 
 }

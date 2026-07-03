@@ -1,4 +1,4 @@
-package com.tangzhong.sample.auth.pojo.vo;
+package com.tangzhong.sample.serve.auth.pojo.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
