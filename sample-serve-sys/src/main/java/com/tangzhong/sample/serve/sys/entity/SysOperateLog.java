@@ -1,0 +1,57 @@
+package com.tangzhong.sample.serve.sys.entity;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.tangzhong.sample.framework.mybatis.entity.BaseEntity;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+
+/**
+ * @author tangzhong
+ * @date   2026-07-02 17:18
+ * @since  V1.0.0
+ */
+@Getter
+@Setter
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+@TableName(value ="sys_operate_log")
+public class SysOperateLog extends BaseEntity {
+
+    /** 操作名称 */
+    private String operationName;
+
+    /** 请求方式 */
+    private String requestMethod;
+
+    /** 请求URL */
+    private String requestUrl;
+
+    /** 方法签名 */
+    private String methodSignature;
+
+    /** 请求参数 */
+    private String requestParams;
+
+    /** 返回结果 */
+    private String responseData;
+
+    /** 操作异常信息 */
+    private String exceptionInfo;
+
+    /** IP */
+    private String ip;
+
+    /** 耗时(ms) */
+    private Long costTime;
+
+    /** 是否成功：{@link com.tangzhong.sample.common.constant.CommonDictConstants#BOOLEAN} */
+    private String isSuccess;
+
+    /** traceId */
+    private String traceId;
+
+}

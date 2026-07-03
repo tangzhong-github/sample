@@ -21,7 +21,7 @@ public class SysMenu extends BaseEntity {
     /** 菜单名称 */
     private String menuName;
 
-    /** 菜单类型：sys_menu_type */
+    /** 菜单类型：{@link com.tangzhong.sample.serve.sys.constant.SysDictConstants#MENU_TYPE} */
     private String type;
 
     /** 父级菜单ID */
@@ -30,7 +30,7 @@ public class SysMenu extends BaseEntity {
     /** 权限码 */
     private String permissionKey;
 
-    /** 菜单状态：sys_menu_status */
+    /** 菜单状态：{@link com.tangzhong.sample.serve.sys.constant.SysDictConstants#MENU_STATUS} */
     private String status;
 
 }

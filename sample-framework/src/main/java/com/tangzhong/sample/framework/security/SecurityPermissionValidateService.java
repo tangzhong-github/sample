@@ -28,9 +28,9 @@ public class SecurityPermissionValidateService {
             Collection<? extends GrantedAuthority> authorities = userInfo.getAuthorities();
             for (GrantedAuthority authority : authorities) {
                 String userPermission = authority.getAuthority();
-                //if (Objects.equals(userPermission, PermissionKeyConstants.ALL)) {
-                    //return true;
-                //}
+                if (Objects.equals(userPermission, PermissionKeyConstants.ALL)) {
+                    return true;
+                }
                 if (Objects.equals(userPermission, permission)) {
                     return true;
                 }

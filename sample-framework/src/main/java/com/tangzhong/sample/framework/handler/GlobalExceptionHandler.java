@@ -1,6 +1,7 @@
 package com.tangzhong.sample.framework.handler;
 
 import com.tangzhong.sample.common.api.response.R;
+import com.tangzhong.sample.common.exception.BizException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -47,6 +48,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
     public R<?> handleIllegalArgumentException(IllegalArgumentException e, HttpServletRequest request) {
+        log.warn(e.getMessage(), e);
+        return R.fail(e.getMessage());
+    }
+
+    @ExceptionHandler(BizException.class)
+    public R<?> handleException(BizException e, HttpServletRequest request) {
         log.warn(e.getMessage(), e);
         return R.fail(e.getMessage());
     }

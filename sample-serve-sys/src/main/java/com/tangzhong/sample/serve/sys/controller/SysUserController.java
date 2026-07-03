@@ -4,6 +4,7 @@ import com.tangzhong.sample.common.api.response.PageObject;
 import com.tangzhong.sample.common.api.response.R;
 import com.tangzhong.sample.common.validation.groups.AddGroup;
 import com.tangzhong.sample.common.validation.groups.EditGroup;
+import com.tangzhong.sample.framework.annotation.OperateLog;
 import com.tangzhong.sample.framework.core.base.controller.BaseController;
 import com.tangzhong.sample.framework.mybatis.entity.Page;
 import com.tangzhong.sample.serve.sys.pojo.dto.SysUserDTO;
@@ -51,6 +52,7 @@ public class SysUserController extends BaseController {
         return R.success(sysUserService.detail(id));
     }
 
+    @OperateLog("用户管理:新增用户")
     @PostMapping
     @PreAuthorize("@ss.hasPermission('sys:user:add')")
     public R<?> add(@RequestBody @Validated(AddGroup.class) SysUserDTO dto){

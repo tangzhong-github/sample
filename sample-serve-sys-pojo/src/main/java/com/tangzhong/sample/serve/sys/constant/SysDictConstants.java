@@ -1,12 +1,14 @@
 package com.tangzhong.sample.serve.sys.constant;
 
+import com.tangzhong.sample.common.constant.CommonDictConstants;
+
 /**
  *
  * @author tangzhong
  * @date   2026-06-05 11:01
  * @since  V1.0.0
  */
-public interface SysDictConstants {
+public interface SysDictConstants extends CommonDictConstants {
 
     /** 用户类型 */
     String USER_TYPE = "1011";
