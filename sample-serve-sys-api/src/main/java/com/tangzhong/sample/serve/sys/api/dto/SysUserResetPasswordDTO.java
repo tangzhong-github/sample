@@ -1,4 +1,4 @@
-package com.tangzhong.sample.serve.sys.pojo.dto;
+package com.tangzhong.sample.serve.sys.api.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;

@@ -9,7 +9,7 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>sample-serve-sys-pojo</artifactId>
+    <artifactId>sample-serve-sys-api</artifactId>
 
     <dependencies>
         <dependency>

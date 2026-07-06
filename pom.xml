@@ -17,7 +17,7 @@
         <module>sample-framework</module>
         <module>sample-serve-auth</module>
         <module>sample-serve-sys</module>
-        <module>sample-serve-sys-pojo</module>
+        <module>sample-serve-sys-api</module>
     </modules>
 
     <properties>
@@ -59,7 +59,7 @@
             </dependency>
             <dependency>
                 <groupId>com.tangzhong</groupId>
-                <artifactId>sample-serve-sys-pojo</artifactId>
+                <artifactId>sample-serve-sys-api</artifactId>
                 <version>1.0.0</version>
             </dependency>
 

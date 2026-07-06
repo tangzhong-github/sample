@@ -2,8 +2,8 @@ package com.tangzhong.sample.serve.sys.service;
 
 import com.tangzhong.sample.framework.mybatis.service.IBaseService;
 import com.tangzhong.sample.serve.sys.entity.SysUserRole;
-import com.tangzhong.sample.serve.sys.pojo.dto.SysRoleAuthorizeDTO;
-import com.tangzhong.sample.serve.sys.pojo.dto.SysUserGrantDTO;
+import com.tangzhong.sample.serve.sys.api.dto.SysRoleAuthorizeDTO;
+import com.tangzhong.sample.serve.sys.api.dto.SysUserGrantDTO;
 
 import java.util.List;
 

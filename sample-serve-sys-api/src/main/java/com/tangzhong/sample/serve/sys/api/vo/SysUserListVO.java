@@ -1,4 +1,4 @@
-package com.tangzhong.sample.serve.sys.pojo.vo;
+package com.tangzhong.sample.serve.sys.api.vo;
 
 import com.tangzhong.sample.common.api.vo.FullAuditInfoBaseVO;
 import lombok.Data;

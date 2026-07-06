@@ -2,7 +2,7 @@ package com.tangzhong.sample.serve.sys.service;
 
 import com.tangzhong.sample.framework.mybatis.service.IBaseManageService;
 import com.tangzhong.sample.serve.sys.entity.SysRole;
-import com.tangzhong.sample.serve.sys.pojo.dto.SysRoleDTO;
+import com.tangzhong.sample.serve.sys.api.dto.SysRoleDTO;
 
 /**
  *

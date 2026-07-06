@@ -1,4 +1,4 @@
-package com.tangzhong.sample.serve.sys.pojo.dto;
+package com.tangzhong.sample.serve.sys.api.dto;
 
 import com.tangzhong.sample.common.api.dto.BaseDTO;
 import jakarta.validation.constraints.NotBlank;

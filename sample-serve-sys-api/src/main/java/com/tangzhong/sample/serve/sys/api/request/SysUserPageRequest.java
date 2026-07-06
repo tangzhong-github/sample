@@ -1,4 +1,4 @@
-package com.tangzhong.sample.serve.sys.pojo.request;
+package com.tangzhong.sample.serve.sys.api.request;
 
 import com.tangzhong.sample.common.api.request.PageBaseRequest;
 import lombok.Data;

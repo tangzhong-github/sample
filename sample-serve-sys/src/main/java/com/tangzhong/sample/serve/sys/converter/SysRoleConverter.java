@@ -2,7 +2,7 @@ package com.tangzhong.sample.serve.sys.converter;
 
 import com.tangzhong.sample.framework.core.BaseConverter;
 import com.tangzhong.sample.serve.sys.entity.SysRole;
-import com.tangzhong.sample.serve.sys.pojo.vo.SysRoleDetailVO;
+import com.tangzhong.sample.serve.sys.api.vo.SysRoleDetailVO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

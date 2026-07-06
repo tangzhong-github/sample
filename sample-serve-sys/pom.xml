@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.tangzhong</groupId>
-            <artifactId>sample-serve-sys-pojo</artifactId>
+            <artifactId>sample-serve-sys-api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.tangzhong</groupId>

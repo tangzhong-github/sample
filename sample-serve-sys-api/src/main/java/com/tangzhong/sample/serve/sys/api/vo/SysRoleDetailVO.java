@@ -1,4 +1,4 @@
-package com.tangzhong.sample.serve.sys.pojo.vo;
+package com.tangzhong.sample.serve.sys.api.vo;
 
 import com.tangzhong.sample.common.api.vo.BaseVO;
 import lombok.Data;
@@ -14,15 +14,15 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class SysUserDetailVO extends BaseVO implements Serializable {
+public class SysRoleDetailVO extends BaseVO implements Serializable {
 
-    /** 用户类型：1011 */
-    private String type;
+    /** 角色名 */
+    private String roleName;
 
-    /** 用户名 */
-    private String username;
+    /** 角色KEY */
+    private String roleKey;
 
-    /** 用户状态：1012 */
+    /** 角色状态：1021 */
     private String status;
 
 }

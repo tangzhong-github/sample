@@ -6,7 +6,7 @@ import com.tangzhong.sample.serve.sys.constant.SysDictConstants;
 import com.tangzhong.sample.serve.sys.converter.SysRoleConverter;
 import com.tangzhong.sample.serve.sys.entity.SysRole;
 import com.tangzhong.sample.serve.sys.mapper.SysRoleMapper;
-import com.tangzhong.sample.serve.sys.pojo.dto.SysRoleDTO;
+import com.tangzhong.sample.serve.sys.api.dto.SysRoleDTO;
 import com.tangzhong.sample.serve.sys.service.ISysRoleService;
 import com.tangzhong.sample.serve.sys.service.ISysUserRoleService;
 import lombok.RequiredArgsConstructor;
