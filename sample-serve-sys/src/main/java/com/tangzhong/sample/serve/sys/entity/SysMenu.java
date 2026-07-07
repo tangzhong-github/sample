@@ -1,7 +1,8 @@
 package com.tangzhong.sample.serve.sys.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzhong.sample.framework.mybatis.entity.BaseEntity;
+import com.tangzhong.sample.framework.mybatis.entity.MybatisEntity;
+import com.tangzhong.sample.serve.sys.constant.SysDict;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,12 +17,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @TableName(value ="sys_menu")
-public class SysMenu extends BaseEntity {
+public class SysMenu extends MybatisEntity {
 
     /** 菜单名称 */
     private String menuName;
 
-    /** 菜单类型：{@link com.tangzhong.sample.serve.sys.constant.SysDictConstants#MENU_TYPE} */
+    /** 菜单类型：{@link SysDict#MENU_TYPE} */
     private String type;
 
     /** 父级菜单ID */
@@ -30,7 +31,7 @@ public class SysMenu extends BaseEntity {
     /** 权限码 */
     private String permissionKey;
 
-    /** 菜单状态：{@link com.tangzhong.sample.serve.sys.constant.SysDictConstants#MENU_STATUS} */
+    /** 菜单状态：{@link SysDict#MENU_STATUS} */
     private String status;
 
 }

@@ -1,6 +1,6 @@
 package com.tangzhong.sample.serve.sys.api.dto;
 
-import com.tangzhong.sample.common.api.dto.BaseDTO;
+import com.tangzhong.sample.framework.common.base.BaseDTO;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

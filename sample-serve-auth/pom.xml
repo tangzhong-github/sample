@@ -13,9 +13,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.tangzhong</groupId>
-            <artifactId>sample-framework</artifactId>
-            <scope>provided</scope>
+            <groupId>com.tangzhong  </groupId>
+            <artifactId>sample-framework-starter</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 

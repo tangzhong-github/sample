@@ -1,6 +1,6 @@
 package com.tangzhong.sample.serve.sys.api.vo;
 
-import com.tangzhong.sample.common.api.vo.FullAuditInfoBaseVO;
+import com.tangzhong.sample.framework.common.base.BaseVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -15,18 +15,18 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class SysUserListVO extends FullAuditInfoBaseVO implements Serializable {
+public class SysUserListVO extends BaseVO implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
-    /** 用户类型 {@link com.tangzhong.sample.serve.sys.constant.SysDictConstants#USER_TYPE} */
+    /** 用户类型 {@link com.tangzhong.sample.serve.sys.constant.SysDict#USER_TYPE} */
     private String type;
 
     /** 用户名 */
     private String username;
 
-    /** 用户状态：{@link com.tangzhong.sample.serve.sys.constant.SysDictConstants#USER_STATUS} */
+    /** 用户状态：{@link com.tangzhong.sample.serve.sys.constant.SysDict#USER_STATUS} */
     private String status;
 
 }

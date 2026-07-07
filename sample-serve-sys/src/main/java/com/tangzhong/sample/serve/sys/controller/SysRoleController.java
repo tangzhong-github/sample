@@ -1,9 +1,9 @@
 package com.tangzhong.sample.serve.sys.controller;
 
-import com.tangzhong.sample.common.api.response.PageObject;
-import com.tangzhong.sample.common.api.response.R;
-import com.tangzhong.sample.framework.core.base.controller.BaseController;
+import com.tangzhong.sample.framework.common.api.PageObject;
+import com.tangzhong.sample.framework.common.api.R;
 import com.tangzhong.sample.framework.mybatis.entity.Page;
+import com.tangzhong.sample.framework.web.BaseController;
 import com.tangzhong.sample.serve.sys.api.dto.SysRoleAuthorizeDTO;
 import com.tangzhong.sample.serve.sys.api.dto.SysRoleDTO;
 import com.tangzhong.sample.serve.sys.api.request.SysUserPageRequest;

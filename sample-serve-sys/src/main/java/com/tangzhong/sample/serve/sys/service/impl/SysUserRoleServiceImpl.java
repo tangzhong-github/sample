@@ -1,10 +1,10 @@
 package com.tangzhong.sample.serve.sys.service.impl;
 
 import com.tangzhong.sample.framework.mybatis.service.impl.BaseServiceImpl;
-import com.tangzhong.sample.serve.sys.entity.SysUserRole;
-import com.tangzhong.sample.serve.sys.mapper.SysUserRoleMapper;
 import com.tangzhong.sample.serve.sys.api.dto.SysRoleAuthorizeDTO;
 import com.tangzhong.sample.serve.sys.api.dto.SysUserGrantDTO;
+import com.tangzhong.sample.serve.sys.entity.SysUserRole;
+import com.tangzhong.sample.serve.sys.mapper.SysUserRoleMapper;
 import com.tangzhong.sample.serve.sys.service.ISysUserRoleService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,7 +41,7 @@ public class SysUserRoleServiceImpl extends BaseServiceImpl<SysUserRole, SysUser
         }
         if(!CollectionUtils.isEmpty(dto.getRoleIds())){
             List<SysUserRole> userRoleList = dto.getRoleIds().stream()
-                    .map(roleId -> SysUserRole.builder().userId(dto.getUserId()).roleId(roleId).build())
+                    .map(roleId -> SysUserRole.of(dto.getUserId(), roleId))
                     .collect(Collectors.toList());
             super.saveBatch(userRoleList);
         }
@@ -56,7 +56,7 @@ public class SysUserRoleServiceImpl extends BaseServiceImpl<SysUserRole, SysUser
         }
         if(!CollectionUtils.isEmpty(dto.getUserIds())){
             List<SysUserRole> userRoleList = dto.getUserIds().stream()
-                    .map(userId -> SysUserRole.builder().userId(userId).roleId(dto.getRoleId()).build())
+                    .map(userId -> SysUserRole.of(userId, dto.getRoleId()))
                     .collect(Collectors.toList());
             super.saveBatch(userRoleList);
         }

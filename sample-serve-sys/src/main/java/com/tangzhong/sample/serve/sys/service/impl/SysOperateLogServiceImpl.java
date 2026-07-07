@@ -1,7 +1,7 @@
 package com.tangzhong.sample.serve.sys.service.impl;
 
-import com.tangzhong.sample.framework.core.log.OperateLogDTO;
-import com.tangzhong.sample.framework.core.log.OperateLogHandler;
+import com.tangzhong.sample.framework.log.OperateLogDTO;
+import com.tangzhong.sample.framework.log.OperateLogHandler;
 import com.tangzhong.sample.framework.mybatis.service.impl.BaseServiceImpl;
 import com.tangzhong.sample.serve.sys.converter.SysOperateLogConverter;
 import com.tangzhong.sample.serve.sys.entity.SysOperateLog;

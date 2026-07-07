@@ -1,9 +1,9 @@
 package com.tangzhong.sample.serve.sys.converter;
 
-import com.tangzhong.sample.framework.core.BaseConverter;
-import com.tangzhong.sample.framework.core.log.OperateLogDTO;
-import com.tangzhong.sample.serve.sys.entity.SysOperateLog;
+import com.tangzhong.sample.framework.common.service.BaseConverter;
+import com.tangzhong.sample.framework.log.OperateLogDTO;
 import com.tangzhong.sample.serve.sys.api.vo.SysOperateLogDetailVO;
+import com.tangzhong.sample.serve.sys.entity.SysOperateLog;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

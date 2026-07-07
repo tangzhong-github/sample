@@ -1,10 +1,11 @@
 package com.tangzhong.sample.serve.sys.provider;
 
-import com.tangzhong.sample.common.constant.PermissionKeyConstants;
-import com.tangzhong.sample.common.constant.RoleKeyConstants;
-import com.tangzhong.sample.common.util.AssertUtil;
-import com.tangzhong.sample.framework.security.UserInfoProvider;
-import com.tangzhong.sample.serve.sys.constant.SysDictConstants;
+import com.tangzhong.sample.framework.common.constant.PermissionKeyConstants;
+import com.tangzhong.sample.framework.common.constant.RoleKeyConstants;
+import com.tangzhong.sample.framework.common.service.UserInfo;
+import com.tangzhong.sample.framework.common.util.AssertUtil;
+import com.tangzhong.sample.framework.security.service.UserInfoProvider;
+import com.tangzhong.sample.serve.sys.constant.SysDict;
 import com.tangzhong.sample.serve.sys.entity.SysMenu;
 import com.tangzhong.sample.serve.sys.entity.SysRole;
 import com.tangzhong.sample.serve.sys.entity.SysUser;
@@ -30,7 +31,7 @@ import java.util.Objects;
  */
 @Component
 @RequiredArgsConstructor
-public class SysUserInfoProvider implements UserInfoProvider<SysUser> {
+public class SysUserInfoProvider implements UserInfoProvider {
 
     private final ISysUserService sysUserService;
     private final ISysMenuService sysMenuService;
@@ -39,23 +40,15 @@ public class SysUserInfoProvider implements UserInfoProvider<SysUser> {
     private final ISysRoleMenuService sysRoleMenuService;
 
     @Override
-    public SysUser getUser(String username) {
-        return sysUserService.getByUsername(username);
-    }
-
-    @Override
-    public void checkUser(SysUser userEntity) {
+    public UserInfo getUser(String username) {
+        SysUser userEntity = sysUserService.getByUsername(username);
         if(Objects.isNull(userEntity)){
             throw new UsernameNotFoundException("用户不存在");
         }
-        if(Objects.equals(userEntity.getStatus(), SysDictConstants.USER_STATUS_FREEZE)){
+        if(Objects.equals(userEntity.getStatus(), SysDict.USER_STATUS_FREEZE)){
             throw new UsernameNotFoundException("当前用户已被冻结，请联系管理员！");
         }
-    }
-
-    @Override
-    public String getPassword(SysUser userEntity) {
-        return userEntity.getPassword();
+        return userEntity;
     }
 
     @Override

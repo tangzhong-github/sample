@@ -13,7 +13,6 @@
     <description>Succinct development sample</description>
     <modules>
         <module>sample-boostrap</module>
-        <module>sample-common</module>
         <module>sample-framework</module>
         <module>sample-serve-auth</module>
         <module>sample-serve-sys</module>
@@ -34,17 +33,7 @@
         <dependencies>
             <dependency>
                 <groupId>com.tangzhong</groupId>
-                <artifactId>sample-boostrap</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.tangzhong</groupId>
-                <artifactId>sample-common</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.tangzhong</groupId>
-                <artifactId>sample-framework</artifactId>
+                <artifactId>sample-framework-starter</artifactId>
                 <version>1.0.0</version>
             </dependency>
             <dependency>

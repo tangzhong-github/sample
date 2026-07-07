@@ -1,6 +1,6 @@
 package com.tangzhong.sample.serve.sys.api.request;
 
-import com.tangzhong.sample.common.api.request.PageBaseRequest;
+import com.tangzhong.sample.framework.common.base.BasePageRequest;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -12,12 +12,12 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class SysUserPageRequest extends PageBaseRequest {
+public class SysUserPageRequest extends BasePageRequest {
 
     /** 用户名 */
     private String username;
 
-    /** 用户状态：{@link com.tangzhong.sample.serve.sys.constant.SysDictConstants#USER_STATUS} */
+    /** 用户状态：{@link com.tangzhong.sample.serve.sys.constant.SysDict#USER_STATUS} */
     private String status;
 
 }

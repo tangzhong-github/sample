@@ -1,13 +1,11 @@
 package com.tangzhong.sample.serve.sys.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzhong.sample.framework.mybatis.entity.BaseEntity;
-import lombok.AllArgsConstructor;
+import com.tangzhong.sample.framework.mybatis.entity.MybatisEntity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
 /**
  *
@@ -17,12 +15,10 @@ import lombok.experimental.SuperBuilder;
  */
 @Getter
 @Setter
-@SuperBuilder
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @TableName(value ="sys_role")
-public class SysRole extends BaseEntity {
+public class SysRole extends MybatisEntity {
 
     /** 角色名 */
     private String roleName;

@@ -1,7 +1,7 @@
 package com.tangzhong.sample.serve.sys.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzhong.sample.framework.mybatis.entity.BaseEntity;
+import com.tangzhong.sample.framework.mybatis.entity.MybatisEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,7 +16,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @TableName(value ="sys_role_menu")
-public class SysRoleMenu extends BaseEntity {
+public class SysRoleMenu extends MybatisEntity {
 
     /** 角色ID */
     private Long roleId;

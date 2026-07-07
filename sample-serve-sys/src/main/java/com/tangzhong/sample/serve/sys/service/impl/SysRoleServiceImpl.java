@@ -1,12 +1,12 @@
 package com.tangzhong.sample.serve.sys.service.impl;
 
-import com.tangzhong.sample.common.util.AssertUtil;
+import com.tangzhong.sample.framework.common.util.AssertUtil;
 import com.tangzhong.sample.framework.mybatis.service.impl.BaseManageServiceImpl;
-import com.tangzhong.sample.serve.sys.constant.SysDictConstants;
+import com.tangzhong.sample.serve.sys.api.dto.SysRoleDTO;
+import com.tangzhong.sample.serve.sys.constant.SysDict;
 import com.tangzhong.sample.serve.sys.converter.SysRoleConverter;
 import com.tangzhong.sample.serve.sys.entity.SysRole;
 import com.tangzhong.sample.serve.sys.mapper.SysRoleMapper;
-import com.tangzhong.sample.serve.sys.api.dto.SysRoleDTO;
 import com.tangzhong.sample.serve.sys.service.ISysRoleService;
 import com.tangzhong.sample.serve.sys.service.ISysUserRoleService;
 import lombok.RequiredArgsConstructor;
@@ -37,12 +37,9 @@ public class SysRoleServiceImpl extends BaseManageServiceImpl<SysRole, SysRoleDT
     public boolean add(SysRoleDTO dto) {
         SysRole stock = this.getRole(dto.getRoleKey());
         AssertUtil.predict(Objects::isNull, stock, "角色Key已存在，请确认！");
-        return super.save(SysRole.builder()
-                .roleKey(dto.getRoleKey())
-                .roleName(dto.getRoleName())
-                .status(SysDictConstants.ROLE_STATUS_NORMAL)
-                .build()
-        );
+        SysRole role = converter.toEntity(dto);
+        role.setStatus(SysDict.ROLE_STATUS_NORMAL);
+        return super.save(role);
     }
 
     @Override
@@ -56,12 +53,12 @@ public class SysRoleServiceImpl extends BaseManageServiceImpl<SysRole, SysRoleDT
     @Override
     public boolean enable(Long id) {
         SysRole stock = super.getById(id);
-        return super.update(stock.getId(), SysRole::getStatus, SysDictConstants.ROLE_STATUS_NORMAL);
+        return super.update(stock.getId(), SysRole::getStatus, SysDict.ROLE_STATUS_NORMAL);
     }
 
     @Override
     public boolean disable(Long id) {
         SysRole stock = super.getById(id);
-        return super.update(stock.getId(), SysRole::getStatus, SysDictConstants.ROLE_STATUS_DISABLE);
+        return super.update(stock.getId(), SysRole::getStatus, SysDict.ROLE_STATUS_DISABLE);
     }
 }

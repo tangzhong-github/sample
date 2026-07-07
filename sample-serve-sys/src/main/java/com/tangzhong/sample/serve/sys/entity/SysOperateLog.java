@@ -1,14 +1,10 @@
 package com.tangzhong.sample.serve.sys.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzhong.sample.framework.mybatis.entity.BaseEntity;
-import lombok.AllArgsConstructor;
+import com.tangzhong.sample.framework.mybatis.entity.MybatisEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
-
-import java.time.LocalDateTime;
 
 /**
  * @author tangzhong
@@ -17,11 +13,9 @@ import java.time.LocalDateTime;
  */
 @Getter
 @Setter
-@SuperBuilder
 @NoArgsConstructor
-@AllArgsConstructor
 @TableName(value ="sys_operate_log")
-public class SysOperateLog extends BaseEntity {
+public class SysOperateLog extends MybatisEntity {
 
     /** traceId */
     private String traceId;

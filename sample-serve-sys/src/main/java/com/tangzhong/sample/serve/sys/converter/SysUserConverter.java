@@ -1,8 +1,9 @@
 package com.tangzhong.sample.serve.sys.converter;
 
-import com.tangzhong.sample.framework.core.BaseConverter;
-import com.tangzhong.sample.serve.sys.entity.SysUser;
+import com.tangzhong.sample.framework.common.service.BaseConverter;
+import com.tangzhong.sample.serve.sys.api.dto.SysUserDTO;
 import com.tangzhong.sample.serve.sys.api.vo.SysUserDetailVO;
+import com.tangzhong.sample.serve.sys.entity.SysUser;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -16,5 +17,7 @@ import org.mapstruct.factory.Mappers;
 public interface SysUserConverter extends BaseConverter<SysUser, SysUserDetailVO> {
 
     SysUserConverter INSTANCE = Mappers.getMapper(SysUserConverter.class);
+
+    SysUser toEntity(SysUserDTO dto);
 
 }

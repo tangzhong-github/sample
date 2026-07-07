@@ -1,12 +1,12 @@
 package com.tangzhong.sample.serve.sys.controller;
 
-import com.tangzhong.sample.common.api.response.PageObject;
-import com.tangzhong.sample.common.api.response.R;
-import com.tangzhong.sample.common.validation.groups.AddGroup;
-import com.tangzhong.sample.common.validation.groups.EditGroup;
-import com.tangzhong.sample.framework.core.log.OperateLog;
-import com.tangzhong.sample.framework.core.base.controller.BaseController;
+import com.tangzhong.sample.framework.common.api.PageObject;
+import com.tangzhong.sample.framework.common.api.R;
+import com.tangzhong.sample.framework.common.validation.groups.AddGroup;
+import com.tangzhong.sample.framework.common.validation.groups.EditGroup;
+import com.tangzhong.sample.framework.log.annotation.OperateLog;
 import com.tangzhong.sample.framework.mybatis.entity.Page;
+import com.tangzhong.sample.framework.web.BaseController;
 import com.tangzhong.sample.serve.sys.api.dto.SysUserDTO;
 import com.tangzhong.sample.serve.sys.api.dto.SysUserGrantDTO;
 import com.tangzhong.sample.serve.sys.api.dto.SysUserResetPasswordDTO;
@@ -54,7 +54,8 @@ public class SysUserController extends BaseController {
 
     @OperateLog("用户管理:新增用户")
     @PostMapping
-    @PreAuthorize("@ss.hasPermission('sys:user:add')")
+    //@PreAuthorize("@ss.hasPermission('sys:user:add')")
+    @PreAuthorize("hasAuthority('sys:user:add')")
     public R<?> add(@RequestBody @Validated(AddGroup.class) SysUserDTO dto){
         sysUserService.add(dto);
         return R.success();

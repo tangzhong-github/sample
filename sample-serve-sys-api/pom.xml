@@ -14,8 +14,8 @@
     <dependencies>
         <dependency>
             <groupId>com.tangzhong</groupId>
-            <artifactId>sample-common</artifactId>
-            <scope>provided</scope>
+            <artifactId>sample-framework-common</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 

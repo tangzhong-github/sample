@@ -1,6 +1,6 @@
 package com.tangzhong.sample.serve.sys.api.vo;
 
-import com.tangzhong.sample.common.api.vo.BaseVO;
+import com.tangzhong.sample.framework.common.base.BaseVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

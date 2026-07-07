@@ -1,13 +1,11 @@
 package com.tangzhong.sample.serve.sys.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzhong.sample.framework.mybatis.entity.BaseEntity;
-import lombok.AllArgsConstructor;
+import com.tangzhong.sample.framework.mybatis.entity.MybatisEntity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
 /**
  *
@@ -17,17 +15,22 @@ import lombok.experimental.SuperBuilder;
  */
 @Getter
 @Setter
-@SuperBuilder
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @TableName(value ="sys_user_role")
-public class SysUserRole extends BaseEntity {
+public class SysUserRole extends MybatisEntity {
 
     /** 用户ID */
     private Long userId;
 
     /** 角色ID */
     private Long roleId;
+
+    public static SysUserRole of(Long userId, Long roleId){
+        SysUserRole userRole = new SysUserRole();
+        userRole.setUserId(userId);
+        userRole.setRoleId(roleId);
+        return userRole;
+    }
 
 }

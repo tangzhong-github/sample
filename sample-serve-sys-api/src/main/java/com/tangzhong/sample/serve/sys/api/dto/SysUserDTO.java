@@ -1,8 +1,8 @@
 package com.tangzhong.sample.serve.sys.api.dto;
 
-import com.tangzhong.sample.common.api.dto.BaseDTO;
-import com.tangzhong.sample.common.validation.groups.AddGroup;
-import com.tangzhong.sample.common.validation.groups.EditGroup;
+import com.tangzhong.sample.framework.common.base.BaseDTO;
+import com.tangzhong.sample.framework.common.validation.groups.AddGroup;
+import com.tangzhong.sample.framework.common.validation.groups.EditGroup;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;

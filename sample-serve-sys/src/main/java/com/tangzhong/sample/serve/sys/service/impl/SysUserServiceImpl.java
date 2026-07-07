@@ -1,14 +1,14 @@
 package com.tangzhong.sample.serve.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.tangzhong.sample.common.util.AssertUtil;
+import com.tangzhong.sample.framework.common.util.AssertUtil;
 import com.tangzhong.sample.framework.mybatis.service.impl.BaseManageServiceImpl;
-import com.tangzhong.sample.serve.sys.constant.SysDictConstants;
+import com.tangzhong.sample.serve.sys.api.dto.SysUserDTO;
+import com.tangzhong.sample.serve.sys.api.dto.SysUserResetPasswordDTO;
+import com.tangzhong.sample.serve.sys.constant.SysDict;
 import com.tangzhong.sample.serve.sys.converter.SysUserConverter;
 import com.tangzhong.sample.serve.sys.entity.SysUser;
 import com.tangzhong.sample.serve.sys.mapper.SysUserMapper;
-import com.tangzhong.sample.serve.sys.api.dto.SysUserDTO;
-import com.tangzhong.sample.serve.sys.api.dto.SysUserResetPasswordDTO;
 import com.tangzhong.sample.serve.sys.service.ISysUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -42,14 +42,11 @@ public class SysUserServiceImpl extends BaseManageServiceImpl<SysUser, SysUserDT
         stock = super.getOne(SysUser::getMobilePhoneNumber, dto.getMobilePhoneNumber());
         AssertUtil.predict(Objects::isNull, stock, "手机号已存在");
 
-        return super.save(SysUser.builder()
-                .type(SysDictConstants.USER_TYPE_ORDINARY)
-                .username(dto.getUsername())
-                .mobilePhoneNumber(dto.getMobilePhoneNumber())
-                .password(passwordEncoder.encode("123456"))
-                .status(SysDictConstants.USER_STATUS_NORMAL)
-                .build()
-        );
+        SysUser user = converter.toEntity(dto);
+        user.setType(SysDict.USER_TYPE_ORDINARY);
+        user.setPassword(passwordEncoder.encode("123456"));
+        user.setStatus(SysDict.USER_STATUS_NORMAL);
+        return super.save(user);
     }
 
     @Override
@@ -78,14 +75,14 @@ public class SysUserServiceImpl extends BaseManageServiceImpl<SysUser, SysUserDT
     @Transactional(rollbackFor = RuntimeException.class)
     public boolean enable(Long id) {
         SysUser user = super.getById(id);
-        return super.update(user.getId(), SysUser::getStatus, SysDictConstants.USER_STATUS_NORMAL);
+        return super.update(user.getId(), SysUser::getStatus, SysDict.USER_STATUS_NORMAL);
     }
 
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
     public boolean disable(Long id) {
         SysUser user = super.getById(id);
-        return super.update(user.getId(), SysUser::getStatus, SysDictConstants.USER_STATUS_FREEZE);
+        return super.update(user.getId(), SysUser::getStatus, SysDict.USER_STATUS_FREEZE);
     }
 
 }

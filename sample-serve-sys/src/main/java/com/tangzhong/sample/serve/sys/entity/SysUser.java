@@ -1,12 +1,12 @@
 package com.tangzhong.sample.serve.sys.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzhong.sample.framework.mybatis.entity.BaseEntity;
-import lombok.AllArgsConstructor;
+import com.tangzhong.sample.framework.common.service.UserInfo;
+import com.tangzhong.sample.framework.mybatis.entity.MybatisEntity;
+import com.tangzhong.sample.serve.sys.constant.SysDict;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
 /**
  *
@@ -16,13 +16,11 @@ import lombok.experimental.SuperBuilder;
  */
 @Getter
 @Setter
-@SuperBuilder
 @NoArgsConstructor
-@AllArgsConstructor
 @TableName(value ="sys_user")
-public class SysUser extends BaseEntity {
+public class SysUser extends MybatisEntity implements UserInfo {
 
-    /** 用户类型 {@link com.tangzhong.sample.serve.sys.constant.SysDictConstants#USER_TYPE} */
+    /** 用户类型 {@link SysDict#USER_TYPE} */
     private String type;
 
     /** 用户名 */
@@ -34,7 +32,16 @@ public class SysUser extends BaseEntity {
     /** 密码 */
     private String password;
 
-    /** 用户状态：{@link com.tangzhong.sample.serve.sys.constant.SysDictConstants#USER_STATUS} */
+    /** 用户状态：{@link SysDict#USER_STATUS} */
     private String status;
 
+    @Override
+    public Long getUserId() {
+        return super.getId();
+    }
+
+    @Override
+    public String getUserPassword() {
+        return this.getPassword();
+    }
 }
