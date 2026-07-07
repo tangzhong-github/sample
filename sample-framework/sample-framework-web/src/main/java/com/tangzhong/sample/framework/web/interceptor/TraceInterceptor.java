@@ -17,6 +17,7 @@ public class TraceInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull Object handler) throws Exception {
         RequestContext.setTraceId();
+        response.setHeader("X-Trace-Id", RequestContext.getTraceId());
         return true;
     }
 

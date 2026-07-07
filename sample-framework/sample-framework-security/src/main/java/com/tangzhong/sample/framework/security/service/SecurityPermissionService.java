@@ -1,5 +1,6 @@
 package com.tangzhong.sample.framework.security.service;
 
+import com.tangzhong.sample.framework.common.constant.PermissionKeyConstants;
 import com.tangzhong.sample.framework.security.entity.SecurityUserDetail;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -27,9 +28,9 @@ public class SecurityPermissionService {
             Collection<? extends GrantedAuthority> authorities = userInfo.getAuthorities();
             for (GrantedAuthority authority : authorities) {
                 String userPermission = authority.getAuthority();
-                /*if (Objects.equals(userPermission, PermissionKeyConstants.ALL)) {
+                if (Objects.equals(userPermission, PermissionKeyConstants.ALL)) {
                     return true;
-                }*/
+                }
                 if (Objects.equals(userPermission, permission)) {
                     return true;
                 }

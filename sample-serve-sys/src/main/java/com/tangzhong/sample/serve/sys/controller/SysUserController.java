@@ -54,8 +54,7 @@ public class SysUserController extends BaseController {
 
     @OperateLog("用户管理:新增用户")
     @PostMapping
-    //@PreAuthorize("@ss.hasPermission('sys:user:add')")
-    @PreAuthorize("hasAuthority('sys:user:add')")
+    @PreAuthorize("@ss.hasPermission('sys:user:add')")
     public R<?> add(@RequestBody @Validated(AddGroup.class) SysUserDTO dto){
         sysUserService.add(dto);
         return R.success();
